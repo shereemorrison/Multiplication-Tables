@@ -1,0 +1,116 @@
+/* styles.css */
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-image: url('border.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.header img {
+  max-width: 50%;
+  height: auto;
+}
+
+button {
+  padding: 12px 24px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.table-wrapper {
+  max-width: 800px;
+  margin: 20px auto; /* Center the table horizontally */
+  padding: 10px;
+  position: relative;
+  overflow-x: auto;
+}
+
+.table-wrapper table {
+  border-collapse: collapse;
+  font-size: 14px;
+  width: 100%;
+  display: inline-block;
+}
+
+.table-wrapper th:first-child,
+.table-wrapper td:first-child {
+  position: sticky;
+  left: 0;
+  background-color: #f2f2f2;
+  font-weight: bold;
+  border-right: 2px solid #000;
+  padding: 8px;
+}
+
+.table-wrapper tr:first-child th,
+.table-wrapper tr:first-child td {
+  position: sticky;
+  top: 0;
+  background-color: #f2f2f2;
+  font-weight: bold;
+  border-bottom: 2px solid #000;
+  padding: 8px;
+}
+
+
+/* Style for the tooltip */
+.tooltip {
+    position: relative;
+    font-size: 12px;
+    display: inline-block; /* Display tooltips inline */
+    white-space: nowrap; /* Prevent tooltips from wrapping */
+}
+
+.tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    color: black;
+    padding: 2px; 
+    border-radius: 5px;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.1s;
+    /* Ensure tooltip is always above other elements */
+    z-index: 1;
+}
+
+/* Show tooltip when button is hovered */
+.tooltip:hover::after {
+    opacity: 1;
+}
+
+/* Hide tooltip when button is not hovered */
+.tooltip:not(:hover)::after {
+    opacity: 0;
+}
+
+/* Disable buttons initially */
+button[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

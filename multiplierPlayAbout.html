@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Tables</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    
+</head>
+<body onload="initializePage()">
+    <div class="header">
+        <img src="header.jpg" alt="Header Image">
+        <h4 id="headerText"></h4>
+    </div>
+
+    <div id="resetButtonContainer">
+        <!-- Added tooltip to the Reset button -->
+        <button id="resetButton" style="display: none;" onclick="reset()" class="tooltip" aria-label="Click me to start again" data-tooltip="Click me to start again" disabled>Reset</button>
+    </div>
+
+    <div id="options">
+        <!-- Added tooltip to the Show Standard Tables button -->
+        <button id="showStandardButton" onclick="showStandardTables()" class="tooltip" aria-label="Show standard times tables" data-tooltip="Click me to select a standard times tables" disabled>Show standard times tables</button>
+        <!-- Added tooltip to the Create Custom Table button -->
+        <button id="createCustomButton" onclick="createCustomTable()" class="tooltip" aria-label="Create your own multiplication table" data-tooltip="Click me to create your own table" disabled>Create your own multiplication table</button>
+    </div>
+
+    <div id="standardOptions" style="display: none; margin-top: 20px;">
+        <div class="select-container">
+            <label for="selectTimesTable">Select times table:</label>
+            <select id="selectTimesTable" onchange="generateStandardTable()" disabled>
+                <!-- Blank option to start -->
+                <option value="" selected disabled hidden></option>
+                <!-- Options will be added dynamically -->
+            </select>
+        </div>
+    </div>
+
+    <div id="customOptions" style="display: none; margin-top: 20px;">
+        <div class="input-group tooltip" data-tooltip="Enter a value from 2 to 100">
+            <label for="rows">Select the number of rows:</label>
+            <input type="number" id="rows" min="2" max="100" value="">
+        </div><br><br>
+        <div class="input-group tooltip" data-tooltip="Enter a value from 2 to 100">
+            <label for="columns">Select the number of columns:</label>
+            <input type="number" id="columns" min="2" max="100" value="">
+        </div><br><br>
+  
+
+        <button onclick="generateCustomTable()" disabled>Create Table</button>
+    </div>
+
+    <div class="table-wrapper" id="tableContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
